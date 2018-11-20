@@ -19,17 +19,13 @@ const AboutContainer = styled.div`
   }
 `;
 
-const DescriptionColumn = styled.div`
+const DescriptionBlock = styled.div`
   grid-column: 1 / 3;
+  grid-row: span 2;
 
   @media only screen and (max-width: 500px) {
-    grid-column: 1 / 4;
+    grid-column: span 4;
   }
-`;
-
-const NavigationColumn = styled.div`
-  display: grid;
-  grid-template-rows: 1fr 1fr;
 `;
 
 
@@ -39,13 +35,11 @@ class AboutPage extends Component {
       <Layout>
         <AboutContainer>
           <Helmet title={`About | ${config.siteTitle}`} />
-          <DescriptionColumn>
+          <DescriptionBlock>
             <About />
-          </DescriptionColumn>
-          <NavigationColumn>
-            <NavCard />
-            <NavCard />
-          </NavigationColumn>
+          </DescriptionBlock>
+          <NavCard />
+          <NavCard />
         </AboutContainer>
       </Layout>
     );
