@@ -38,8 +38,8 @@ class AboutPage extends Component {
           <DescriptionBlock>
             <About />
           </DescriptionBlock>
-          <NavCard />
-          <NavCard />
+          <NavCard title="projects" link="/projects" />
+          <NavCard title="blog" link="/blog" />
         </AboutContainer>
       </Layout>
     );
