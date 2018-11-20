@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Link } from 'gatsby';
+import { Link } from "gatsby";
 
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Card = styled(Link)`
   background-color: white;
@@ -26,9 +26,9 @@ const Card = styled(Link)`
 `;
 
 const NavCard = ({ title, link }) => (
-    <Card to={link}>
-      <p>{title}</p>
-    </Card>  
+  <Card to={link}>
+    <p>{title}</p>
+  </Card>
 );
 
 export default NavCard;
