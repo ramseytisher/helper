@@ -35,6 +35,13 @@ const AboutHeader = styled.h1`
   margin-top: 0px;
 `;
 
+const AboutDrawer = styled.div`
+  position: absolute;
+  height: 100%;
+  background-color: blue;
+  width: 50%
+`;
+
 export default () => (
   <StaticQuery 
     query = {
@@ -59,19 +66,21 @@ export default () => (
       `
     }
     render={data => (
-      <AboutContainer>
-        <DescriptionBlock>
-          <AboutCard>
-            <AboutHeader>
-              {data.allMarkdownRemark.edges[0].node.frontmatter.title}
-            </AboutHeader>
-            <p>{data.allMarkdownRemark.edges[0].node.excerpt} </p>
+      <>
+        <AboutContainer>
+          <DescriptionBlock>
+            <AboutCard>
+              <AboutHeader>
+                {data.allMarkdownRemark.edges[0].node.frontmatter.title}
+              </AboutHeader>
+              <p>{data.allMarkdownRemark.edges[0].node.excerpt} </p>
 
-          </AboutCard>
-        </DescriptionBlock>
-        <NavCard title="projects" link="/projects" />
-        <NavCard title="blog" link="/blog" />
-      </AboutContainer>
+            </AboutCard>
+          </DescriptionBlock>
+          <NavCard title="projects" link="/projects" />
+          <NavCard title="blog" link="/blog" />
+        </AboutContainer>
+      </>
     )}  
 
   />
