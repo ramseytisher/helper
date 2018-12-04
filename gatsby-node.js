@@ -101,10 +101,19 @@ exports.createPages = ({ graphql, actions }) => {
     const postPage = path.resolve("src/templates/post.jsx");
     const tagPage = path.resolve("src/templates/tag.jsx");
     const categoryPage = path.resolve("src/templates/category.jsx");
+    const projectPage = path.resolve("src/templates/project.jsx");
     resolve(
       graphql(
         `
           {
+            allFile {
+              edges {
+                node {
+                  relativeDirectory
+                  absolutePath
+                }
+              }
+            }
             allMarkdownRemark {
               edges {
                 node {
@@ -121,6 +130,7 @@ exports.createPages = ({ graphql, actions }) => {
           }
         `
       ).then(result => {
+        console.log('result', result);
         if (result.errors) {
           /* eslint no-console: "off" */
           console.log(result.errors);
@@ -129,6 +139,16 @@ exports.createPages = ({ graphql, actions }) => {
 
         const tagSet = new Set();
         const categorySet = new Set();
+        const projectSet = new Set();
+
+        result.data.allFile.edges.forEach(edge => {
+          if (edge.node.absolutePath.includes("/projects/")) {
+            if (edge.node.relativeDirectory) {
+              projectSet.add(edge.node.relativeDirectory);
+            }
+          }
+        })
+
         result.data.allMarkdownRemark.edges.forEach(edge => {
           if (edge.node.frontmatter.tags) {
             edge.node.frontmatter.tags.forEach(tag => {
@@ -149,6 +169,17 @@ exports.createPages = ({ graphql, actions }) => {
           });
         });
 
+        const projectList = Array.from(projectSet);
+        projectList.forEach(project => {
+          createPage({
+            path: `/project/${_.kebabCase(project)}/`,
+            component: projectPage,
+            context: {
+              project
+            }
+          })
+        })
+        
         const tagList = Array.from(tagSet);
         tagList.forEach(tag => {
           createPage({
