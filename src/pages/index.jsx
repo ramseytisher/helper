@@ -8,20 +8,14 @@ import config from "../../data/SiteConfig";
 
 import styled from "styled-components";
 
-const Container = styled.div`
-  margin: 3rem auto;
-`;
-
 class Index extends React.Component {
   render() {
     const postEdges = this.props.data.allMarkdownRemark.edges;
     return (
       <Layout>
-        <Container>
-          <Helmet title={config.siteTitle} />
-          <SEO />
-          <PostListing postEdges={postEdges} />
-        </Container>
+        <Helmet title={config.siteTitle} />
+        <SEO />
+        <PostListing postEdges={postEdges} />
       </Layout>
     );
   }
