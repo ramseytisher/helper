@@ -11,10 +11,9 @@ import {
   Layer,
 } from 'grommet';
 
-import { Link } from 'gatsby';
-import { Test, FormClose } from 'grommet-icons';
+import Links from './Links';
 
-import Navigation from '../components/Navigation';
+import { Java, Close } from 'grommet-icons';
 
 const theme = {
   global: {
@@ -56,56 +55,56 @@ export default class MainLayout extends React.Component {
       <Grommet theme={theme} full>
         <ResponsiveContext.Consumer>
           { size => (
-            <Box fill>
-            <Helmet>
-              <meta name="description" content={config.siteDescription} />
-            </Helmet>
-            <AppBar>
-              <Heading level='3' margin='none'>
-                GrommetApp
-              </Heading>
-              <Button 
-                icon={ showSidebar ? <FormClose /> : <Test />} 
-                onClick={() => this.setState({ showSidebar: !this.state.showSidebar })}
-              />
-            </AppBar>
-            <Box direction='row' flex>
-              <Box flex align='center' justify='center'>
-                {children}
+            <Box flex>
+              <Helmet>
+                <meta name="description" content={config.siteDescription} />
+              </Helmet>
+              <AppBar>
+                { 
+                  (size === 'small' || size ==='xsmall') ?
+                  <Button 
+                    icon={ showSidebar ? <Close /> : <Java />} 
+                    onClick={() => this.setState({ showSidebar: !this.state.showSidebar })}
+                  /> :
+                  null
+                }
+                <Heading level='3' margin='none'>
+                  GrommetApp
+                </Heading>
+              </AppBar>
+              <Box>
+                { (size === 'small' || size === 'xsmall') ? 
+                  <Collapsible 
+                    open={showSidebar} 
+                    direction="horizontal"
+                  >
+                    <Box
+                      flex
+                      background='light-2'
+                      elevation='small'
+                      width='medium'
+                      elevation='small'
+                      justify='middle'
+                    >
+                        <Links />
+                    </Box>                  
+                  </Collapsible>
+                  :
+                  <Box
+                    flex  
+                    background='dark-2'
+                    elevation='small'
+                    justify='middle'
+                  >
+                      <Links />
+                  </Box>
+                }
+                <Box flex align='center' justify='center'>
+                  {children}
+                </Box>
               </Box>
-            {(!showSidebar || size !=='small') ? (
-              <Collapsible direction="horizontal" open={showSidebar}>
-                <Box
-                  flex
-                  width='medium'
-                  background='light-2'
-                  elevation='small'
-                  align='center'
-                  justify='center'
-                > 
-                  <Link to="/">Home</Link>
-                  <Link to="/about">About</Link>
-                  <Link to="/projects">Projects</Link>
-                </Box>
-              </Collapsible>
-            ): (
-              <Layer>
-                <Box
-                  fill
-                  background='light-2'
-                  align='center'
-                  justify='center'
-                >
-                  <Link to="/">Home</Link>
-                  <Link to="/about">About</Link>
-                  <Link to="/projects">Projects</Link>
-                </Box>
-              </Layer>
-            )
-          }
-          </Box>
-          </Box>
-        )}
+            </Box>
+          )}
         </ResponsiveContext.Consumer>
       </Grommet>
     );

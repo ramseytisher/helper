@@ -1,5 +1,6 @@
 const config = require("./data/SiteConfig");
 const urljoin = require("url-join");
+const path = require('path');
 
 module.exports = {
   pathPrefix: config.pathPrefix,
@@ -20,6 +21,7 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-react-helmet",
+    "gatsby-transformer-sharp",
     "gatsby-plugin-styled-components",
     {
       resolve: `gatsby-plugin-typography`,
@@ -38,8 +40,8 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "content",
-        path: `${__dirname}/content/content/`
+        name: "posts",
+        path: `${__dirname}/content/posts/`
       }
     },
     {
@@ -52,8 +54,8 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "posts",
-        path: `${__dirname}/content/posts/`
+        name: "reports",
+        path: `${__dirname}/content/reports/`
       }
     },
     {
@@ -61,6 +63,13 @@ module.exports = {
       options: {
         name: "site",
         path: `${__dirname}/site/`
+      }
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "images",
+        path: `${__dirname}/src/images`,
       }
     },
     {
