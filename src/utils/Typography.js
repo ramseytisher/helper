@@ -1,7 +1,7 @@
 import Typography from "typography"
 import lincolnTheme from "typography-theme-lincoln";
 
-lincolnTheme.bodyFontFamily = ['Roboto']
+// lincolnTheme.bodyFontFamily = ['Roboto']
 
 const typography = new Typography(lincolnTheme)
 

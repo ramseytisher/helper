@@ -5,10 +5,15 @@ import Img from "gatsby-image"
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
 
-import { Box, Stack, Paragraph, Button, Grommet, ResponsiveContext, Heading} from 'grommet';
+import { grommet, Box, Stack, Paragraph, Button, Grommet, ResponsiveContext, Heading} from 'grommet';
 import theme from '../layout/theme';
 
 import styled from "styled-components";
+
+const StyledGrommet = styled(Grommet)`
+  overflow-x: hidden;
+  overflow-y: auto;
+`;
 
 const HeroImage = styled(Img)`
   height: 100vh;
@@ -70,7 +75,7 @@ const ContentBlock = ({children}) => (
     { size => (
       <Box 
         pad="medium"
-        direction={(size === 'small') && "column"}
+        direction={(size === 'small') ? "column" : "row"}
         gap="small"
       >
         {children}
@@ -105,7 +110,7 @@ const ContentBox = () => (
 class Index extends React.Component {
   render() {
     return (
-      <Grommet theme={theme} full>
+      <StyledGrommet theme={theme} full>
         <Helmet title={config.siteTitle} />
         <SEO />
           <Stack anchor='center'>
@@ -145,7 +150,7 @@ class Index extends React.Component {
           </Box>
           
           <Box>Contact</Box>  
-      </Grommet>
+      </StyledGrommet>
     );
   }
 }
