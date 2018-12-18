@@ -1,6 +1,6 @@
 ---
 title: "Project 2"
-cover: "https://unsplash.it/400/300/?random?BigTest"
+cover_image: "./images/cover.jpg"
 category: "moar"
 date: "01/03/2018"
 slug: "project-2"

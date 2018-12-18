@@ -22,6 +22,7 @@ module.exports = {
   plugins: [
     "gatsby-plugin-react-helmet",
     "gatsby-transformer-sharp",
+    "gatsby-remark-copy-linked-files",
     "gatsby-plugin-styled-components",
     {
       resolve: `gatsby-plugin-typography`,
@@ -56,13 +57,6 @@ module.exports = {
       options: {
         name: "reports",
         path: `${__dirname}/content/reports/`
-      }
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "site",
-        path: `${__dirname}/site/`
       }
     },
     {

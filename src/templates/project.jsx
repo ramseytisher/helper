@@ -18,7 +18,6 @@ export default class ProjectTemplate extends React.Component {
           <pre>{JSON.stringify(projectEdges, 0, 2)}</pre>
           {
             projectEdges.map( edge => {
-              console.log('edge', edge.node.childMarkdownRemark.html);
               return (
                 <div>
                   <div dangerouslySetInnerHTML={{ __html: edge.node.childMarkdownRemark.html }} />
