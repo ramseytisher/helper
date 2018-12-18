@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Helmet from "react-helmet";
 import { graphql, navigate } from "gatsby";
-import Layout from "../layout";
+import MainLayout from "../layout/MainLayout";
 import config from "../../data/SiteConfig";
 import Img from 'gatsby-image';
 
@@ -11,15 +11,15 @@ class ProjectsPage extends Component {
     const projects = this.props.data.projects.edges;
 
     return (
-      <>
+      <MainLayout>
         <Helmet title={`Projects | ${config.siteTitle}`} />
         <h1>Projects</h1>
         {
           projects.map( project => (
-            <Img fluid={project.node.frontmatter.cover_image.childImageSharp.fluid} />
+            <Img key={project.node.frontmatter.title} fluid={project.node.frontmatter.cover_image.childImageSharp.fluid} />
           ))      
         }
-      </>
+      </MainLayout>
     );
   }
 }
