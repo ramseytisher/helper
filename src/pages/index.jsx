@@ -7,6 +7,7 @@ import config from "../../data/SiteConfig";
 
 import { grommet, Box, Stack, Paragraph, Button, Grommet, ResponsiveContext, Heading} from 'grommet';
 import theme from '../layout/theme';
+import Menu from '../components/Menu';
 
 import styled from "styled-components";
 
@@ -138,6 +139,7 @@ class Index extends React.Component {
                 <HeroButton label="location1" path="projects"/>
                 <HeroButton label="reports" path="projects" />
               </HeroButtonBox>
+              <Menu />
             </Box>
           </Stack>
           <Box>
