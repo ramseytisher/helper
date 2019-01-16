@@ -1,0 +1,1 @@
+Emojipdedia https://emojipedia.org/

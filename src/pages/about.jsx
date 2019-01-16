@@ -6,37 +6,15 @@ import { Grommet, Stack, Box, Button, Heading, Paragraph } from 'grommet';
 import config from "../../data/SiteConfig";
 import Menu from "../components/Menu";
 import Typer from "../components/Typer";
+import Emoji from "../components/Emoji";
+import Sitemap from "../components/Sitemap";
 
 class AboutPage extends Component {
-  state = {
-    menuOpen: false
-  }
-
-  toggleMenu() {
-    this.setState({ menuOpen: !this.state.menuOpen})
-  }
-  
   render() {
-    const { menuOpen } = this.state;
-
     return (
       <Grommet>
         <Helmet title={`About | ${config.siteTitle}`} />
-        <Stack anchor="top">
-          {/* <Stack anchor="bottom">
-            <Img fluid={this.props.data.hero.childImageSharp.fluid} />
-            <h2>some big title</h2>
-          </Stack> */}
-          { menuOpen ?
-            (
-              <Box background="neutral-2">
-                <Menu />
-                <Button onClick={() => this.toggleMenu()}>close menu</Button>
-              </Box>
-            ) :
-            <Button onClick={() => this.toggleMenu()}>asdf</Button>
-          }
-        </Stack>
+        <Sitemap />
         <Box align="center">
           <Heading level="2">some header</Heading>
         </Box>
@@ -60,6 +38,7 @@ class AboutPage extends Component {
         <Box align="center" margin="xlarge">
           <Paragraph textAlign="center">Lorem ipsum dolor amet ugh humblebrag pinterest vaporware, everyday carry hell of godard DIY before they sold out craft beer sriracha four dollar toast next level. Williamsburg stumptown gentrify photo booth occupy man bun. Cornhole gochujang whatever, la croix hella hoodie green juice hammock health goth migas ennui normcore austin. Freegan etsy roof party tattooed fixie.</Paragraph>
         </Box>
+        <Emoji label="happy" symbol="😀" />
       </Grommet>
     );
   }
