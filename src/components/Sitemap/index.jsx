@@ -1,11 +1,11 @@
 import React from 'react'
 import { Box, ResponsiveContext, Grid, Button } from 'grommet';
+import { Twitter, Mail } from 'grommet-icons';
 
 export default () => (
   <ResponsiveContext.Consumer>
     { size => (
       <Grid 
-        background="accent-3"
         areas={[
           { name: 'left', start: [0, 0], end: [0, 0] },
           { name: 'middle', start: [1, 0], end: [1, 0] },
@@ -15,7 +15,7 @@ export default () => (
         rows={['xsmall']}
         gap='xsmall'
       >
-        <Box gridArea='left'>Logo {size}</Box>
+        <Box gridArea='left' align='center' justify='center'>Logo {size}</Box>
         {(size !== 'small') && (
           <Box direction="row" gridArea='middle' justify='center' gap={size}>
             <Button>One</Button>
@@ -25,7 +25,12 @@ export default () => (
           </Box>
         ) }
         
-        <Box gridArea='right'>Social + Privacy</Box>
+        <Box gridArea='right' align='center' justify='center'>
+          <Box direction='row' gap={size}>
+            <Button><Twitter /></Button>
+            <Button><Mail /></Button></Box>
+          <Box>Privacy</Box>
+        </Box>
       </Grid>
     )}
   </ResponsiveContext.Consumer>
