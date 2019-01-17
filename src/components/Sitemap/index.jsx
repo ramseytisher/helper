@@ -1,6 +1,8 @@
 import React from 'react'
 import { Box, ResponsiveContext, Grid, Button } from 'grommet';
-import { Twitter, Mail } from 'grommet-icons';
+import { Twitter, Pinterest, Slack, Mail } from 'grommet-icons';
+
+import SitemapButton from './SitemapButton';
 
 export default () => (
   <ResponsiveContext.Consumer>
@@ -18,17 +20,20 @@ export default () => (
         <Box gridArea='left' align='center' justify='center'>Logo {size}</Box>
         {(size !== 'small') && (
           <Box direction="row" gridArea='middle' justify='center' gap={size}>
-            <Button>One</Button>
-            <Button>Two</Button>
-            <Button>Three</Button>
-            <Button>Four</Button>
+            <SitemapButton label='One' />
+            <SitemapButton label='Two' />
+            <SitemapButton label='Three' />
+            <SitemapButton label='Four' />
           </Box>
         ) }
         
-        <Box gridArea='right' align='center' justify='center'>
+        <Box gridArea='right' align='center' justify='center' gap="small">
           <Box direction='row' gap={size}>
-            <Button><Twitter /></Button>
-            <Button><Mail /></Button></Box>
+            <Button href="http://www.twitter.com" target="_blank"><Twitter /></Button>
+            <Button href="http://www.pinterest.com" target="_blank"><Pinterest /></Button>
+            <Button><Slack /></Button>
+            <Button><Mail /></Button>
+          </Box>
           <Box>Privacy</Box>
         </Box>
       </Grid>
