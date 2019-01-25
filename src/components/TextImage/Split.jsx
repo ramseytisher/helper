@@ -46,3 +46,16 @@ export default ({text, image, textSize, flip, dark}) => (
     )}
   </ResponsiveContext.Consumer>
 )
+
+/* Working sample for usage
+<Split 
+  text="Lorem ipsum dolor amet ugh humblebrag pinterest vaporware, everyday carry hell of godard DIY before they sold out craft beer sriracha four dollar toast next level. Williamsburg stumptown gentrify photo booth occupy man bun. Cornhole gochujang whatever, la croix hella hoodie green juice hammock health goth migas ennui normcore austin. Freegan etsy roof party tattooed fixie."
+  image={this.props.data.hero.childImageSharp.fluid}
+  dark
+/>
+<Split 
+  text="Lorem ipsum dolor amet ugh humblebrag pinterest vaporware, everyday carry hell of godard DIY before they sold out craft beer sriracha four dollar toast next level. Williamsburg stumptown gentrify photo booth occupy man bun. Cornhole gochujang whatever, la croix hella hoodie green juice hammock health goth migas ennui normcore austin. Freegan etsy roof party tattooed fixie."
+  image={this.props.data.hero.childImageSharp.fluid} 
+  flip
+/>
+*/
