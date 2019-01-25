@@ -8,12 +8,23 @@ import Menu from "../components/Menu";
 import Typer from "../components/Typer";
 import Emoji from "../components/Emoji";
 import Sitemap from "../components/Sitemap";
+import TextImage from "../components/TextImage";
 
 class AboutPage extends Component {
   render() {
     return (
       <Grommet>
         <Helmet title={`About | ${config.siteTitle}`} />
+        <TextImage 
+          text="Lorem ipsum dolor amet ugh humblebrag pinterest vaporware, everyday carry hell of godard DIY before they sold out craft beer sriracha four dollar toast next level. Williamsburg stumptown gentrify photo booth occupy man bun. Cornhole gochujang whatever, la croix hella hoodie green juice hammock health goth migas ennui normcore austin. Freegan etsy roof party tattooed fixie."
+          image={this.props.data.hero.childImageSharp.fluid}
+          dark
+        />
+        <TextImage 
+          text="Lorem ipsum dolor amet ugh humblebrag pinterest vaporware, everyday carry hell of godard DIY before they sold out craft beer sriracha four dollar toast next level. Williamsburg stumptown gentrify photo booth occupy man bun. Cornhole gochujang whatever, la croix hella hoodie green juice hammock health goth migas ennui normcore austin. Freegan etsy roof party tattooed fixie."
+          image={this.props.data.hero.childImageSharp.fluid} 
+          flip
+        />
         <Sitemap />
         <Box align="center">
           <Heading level="2">some header</Heading>
@@ -25,6 +36,7 @@ class AboutPage extends Component {
           </Heading>
           <Paragraph textAlign="center">Lorem ipsum dolor amet ugh humblebrag pinterest vaporware, everyday carry hell of godard DIY before they sold out craft beer sriracha four dollar toast next level. Williamsburg stumptown gentrify photo booth occupy man bun. Cornhole gochujang whatever, la croix hella hoodie green juice hammock health goth migas ennui normcore austin. Freegan etsy roof party tattooed fixie.</Paragraph>
         </Box>
+        <TextImage image={this.props.data.hero.childImageSharp.fluid} />
         <Box>
           <Img fluid={this.props.data.hero.childImageSharp.fluid} />
         </Box>

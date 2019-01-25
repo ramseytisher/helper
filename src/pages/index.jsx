@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
 
-import { grommet, Box, Stack, Paragraph, Button, Grommet, ResponsiveContext, Heading} from 'grommet';
+import { Box, Stack, Paragraph, Button, Grommet, ResponsiveContext, Heading} from 'grommet';
 import theme from '../layout/theme';
 import Menu from '../components/Menu';
 
