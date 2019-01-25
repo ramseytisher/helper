@@ -29,7 +29,7 @@ class AboutPage extends Component {
         <Box>
           <Heading>Blog</Heading>
           <Box direction="row">
-            <Hover />
+            <Hover image={this.props.data.ideas.childImageSharp.fluid} />
             <Box width="small">
               <Img fluid={this.props.data.ideas.childImageSharp.fluid} />
             </Box>
