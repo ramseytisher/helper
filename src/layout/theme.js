@@ -4,6 +4,9 @@ export default {
       brand: '#228BE6'
     },
     breakpoints: {
+      xsmall: {
+        value: 400
+      },
       small: {
         value: 560
       },
