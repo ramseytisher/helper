@@ -67,6 +67,21 @@ module.exports = {
       }
     },
     {
+      resolve: "gatsby-source-graphql",
+      options: {
+          // This type will contain the remote schema Query type
+          typeName: "AWSAppSync",
+          // This is the field under which it's accessible
+          fieldName: "events",
+          // URL to query from
+          url: `https://s2qgbn3zlzfxlipcjuuv62idhq.appsync-api.us-east-2.amazonaws.com/graphql`,
+          headers: {
+              "x-api-key": `da2-x7g2svlorzb5zlkcmyx2qlqchq`
+          },
+          refetchInterval: 10,
+      },
+    },
+    {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: [
