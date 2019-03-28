@@ -21,6 +21,7 @@ export default () => {
             <Box background="accent-4" height="large">
               <Heading>make it simple</Heading>
             </Box>
+
             <Box width="80vw" overflow="hidden">
               <Carousel>
                 <CarouselCard heading="Thing 1" text="some other kind of text ..." />
@@ -39,7 +40,7 @@ export default () => {
         
         <Box pad={{"vertical": "xlarge"}} background="accent-3" justify="center" align="center">
           <Box gap="medium">
-            <IconText icon={<InProgress/>} text="Coming from comp" /> 
+            <IconText icon={<InProgress />} text="Coming from comp" /> 
             <IconText icon={<DocumentTest/>} text="Coming from comp" />
             <IconText icon={<Bug/>} text="Coming from comp" />
             <IconText icon={<Workshop/>} text="Coming from comp" />
