@@ -6,6 +6,7 @@ import Login from '../components/Login';
 
 import RotatorCard from '../components/Rotator/RotatorCard';
 import Rotator from '../components/Rotator/Rotator';
+import Typer from '../components/Typer';
 
 
 export default () => {
@@ -20,8 +21,8 @@ export default () => {
           <Stack anchor="bottom">
             <Box background="accent-4" height="large">
               <Heading>make it simple</Heading>
+              <Typer text="hello, world!" duration="300" delay="3000" />
             </Box>
-
             <Box width="75vw">
               <Rotator duration={5000}>
                 <RotatorCard heading="Thing 1" text="some other kind of text ..." />
